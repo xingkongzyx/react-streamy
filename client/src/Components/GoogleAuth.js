@@ -18,27 +18,42 @@ class GoogleAuth extends React.Component {
 					this.auth = window.gapi.auth2.getAuthInstance();
 					// 	通过现有登录状态update state value
 					this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+					// 	添加了一个event listener，在authentication状态发生变化时被调用
 					this.auth.isSignedIn.listen(this.onAuthChange);
 				});
 		});
 	}
 
+	// 用于在sign in状态发生变动时update state从而使整个component rerender，从而
+	// 更新页面button的显示
 	onAuthChange = () => {
 		this.setState({ isSignedIn: this.auth.isSignedIn.get() });
 	};
 
+	// 	用于让用户点击signin button时登录促使用户登录
+	onSignIn = () => {
+		this.auth.signIn();
+	};
+	// 	用于让用户点击signout button时登录促使用户登出
+	onSignOut = () => {
+		this.auth.signOut();
+	};
+
+	// 	根据authentication(this.state.isSignedIn)状态显示对应的button
 	renderAuthButton() {
 		if (this.state.isSignedIn === null) return null;
 		else if (this.state.isSignedIn === false)
 			return (
-				<button className="ui red google button">
-					<i className="google icon" />Sign In
+				<button className="ui red google button" onClick={this.onSignIn}>
+					<i className="google icon" />
+					Sign In
 				</button>
 			);
 		else {
 			return (
-				<button className="ui red google button">
-					<i className="google icon" />Sign Out
+				<button className="ui red google button" onClick={this.onSignOut}>
+					<i className="google icon" />
+					Sign Out
 				</button>
 			);
 		}
