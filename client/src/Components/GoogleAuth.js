@@ -31,11 +31,11 @@ class GoogleAuth extends React.Component {
 	};
 
 	// 	用于让用户点击signin button时登录促使用户登录
-	onSignIn = () => {
+	onSignInClick = () => {
 		this.auth.signIn();
 	};
 	// 	用于让用户点击signout button时登录促使用户登出
-	onSignOut = () => {
+	onSignOutClick = () => {
 		this.auth.signOut();
 	};
 
@@ -44,14 +44,14 @@ class GoogleAuth extends React.Component {
 		if (this.state.isSignedIn === null) return null;
 		else if (this.state.isSignedIn === false)
 			return (
-				<button className="ui red google button" onClick={this.onSignIn}>
+				<button className="ui red google button" onClick={this.onSignInClick}>
 					<i className="google icon" />
 					Sign In
 				</button>
 			);
 		else {
 			return (
-				<button className="ui red google button" onClick={this.onSignOut}>
+				<button className="ui red google button" onClick={this.onSignOutClick}>
 					<i className="google icon" />
 					Sign Out
 				</button>
