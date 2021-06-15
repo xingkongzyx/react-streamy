@@ -36,6 +36,14 @@ class StreamCreate extends React.Component {
 	}
 }
 
+const validate = (formValues) =>{
+	const errors = {};
+	if(!formValues.title) errors.title = "You must enter a title";
+	if(!formValues.description) errors.description = "You must enter a description";
+	
+	return errors
+}
+
 // wire up redux-form with the component
 // 这样component的props中便会自动包含很多相关的属性
 // 注意第一个function的所有参数都以key-value形式在{ form: 'streamCreate' }出现
