@@ -30,10 +30,6 @@ class StreamCreate extends React.Component {
 
 	// 	redux-form中的handleSubmit处理完表格提交后调用的callback function
 	// 	参数为提交时表格内输入的values,我们不再需要event object
-	// onFormSubmit(formValues) {
-	// 	this.props.createStream(formValues);
-	// }
-
 	onFormSubmit = (formValues) => {
 		this.props.createStream(formValues);
 	};
@@ -76,5 +72,10 @@ const wrappedStream = reduxForm({
 	form: 'streamCreate',
 	validate,
 })(StreamCreate);
-
+// Wire up the connect function with the component
 export default connect(null, { createStream })(wrappedStream);
+
+
+
+
+
