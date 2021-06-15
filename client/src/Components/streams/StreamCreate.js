@@ -1,5 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createStream } from '../../actions';
 
 class StreamCreate extends React.Component {
 	// 	辅助renderInput function显示error
@@ -28,16 +30,21 @@ class StreamCreate extends React.Component {
 
 	// 	redux-form中的handleSubmit处理完表格提交后调用的callback function
 	// 	参数为提交时表格内输入的values,我们不再需要event object
-	onFormSubmit(formValues) {
-		console.log('FORM SUBMITED');
-		// console.log('title', formValues.title);
-		// console.log('description', formValues.description);
-	}
+	// onFormSubmit(formValues) {
+	// 	this.props.createStream(formValues);
+	// }
+
+	onFormSubmit = (formValues) => {
+		this.props.createStream(formValues);
+	};
 
 	render() {
 		return (
 			<div className="field">
-				<form className="ui form error" onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
+				<form
+					className="ui form error"
+					onSubmit={this.props.handleSubmit(this.onFormSubmit)}
+				>
 					<Field name="title" component={this.renderInput} label="Enter Title" />
 					<Field
 						name="description"
@@ -65,4 +72,9 @@ const validate = (formValues) => {
 // wire up redux-form with the component
 // 这样component的props中便会自动包含很多相关的属性
 // 注意第一个function的所有参数都以key-value形式在{ form: 'streamCreate' }出现
-export default reduxForm({ form: 'streamCreate', validate })(StreamCreate);
+const wrappedStream = reduxForm({
+	form: 'streamCreate',
+	validate,
+})(StreamCreate);
+
+export default connect(null, { createStream })(wrappedStream);
