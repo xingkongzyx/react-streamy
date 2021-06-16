@@ -23,6 +23,6 @@ const streamReducer = (state = {}, action) => {
 		default:
 			return state;
 	}
-};
+}; 
 
 export default streamReducer;
