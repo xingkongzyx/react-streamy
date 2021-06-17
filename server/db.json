@@ -41,6 +41,18 @@
       "description": "this is a new stream with userID",
       "userId": "116848809589230524061",
       "id": 8
+    },
+    {
+      "title": "title 10",
+      "description": "navigation test",
+      "userId": "116848809589230524061",
+      "id": 9
+    },
+    {
+      "title": "test11",
+      "description": "navigate to streamlist",
+      "userId": "116848809589230524061",
+      "id": 10
     }
   ]
 }

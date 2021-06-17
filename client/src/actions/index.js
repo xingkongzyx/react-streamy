@@ -8,6 +8,7 @@ import {
 	EDIT_STREAM,
 } from './types';
 import streams from '../apis/streams';
+import history from "../history"
 
 export const signIn = (userId) => {
 	return {
@@ -32,6 +33,10 @@ export const createStream = (formValues) => {
 			type: CREATE_STREAM,
 			payload: response.data,
 		});
+		
+// 		after making a request to server.
+// 		navigate user to streamList page(URL: "/")
+		history.push("/")
 	};
 };
 
