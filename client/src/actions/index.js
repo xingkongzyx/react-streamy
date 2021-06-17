@@ -25,9 +25,9 @@ export const signOut = () => {
 // make network request to api server and save the new
 // created stream to the server.
 export const createStream = (formValues) => {
-	return async (dispatch) => {
-		const response = await streams.post('/streams', formValues);
-		console.log(response)
+	return async (dispatch, getState) => {
+		const userId = getState().auth.userId;
+		const response = await streams.post('/streams', {...formValues, userId});
 		dispatch({
 			type: CREATE_STREAM,
 			payload: response.data,
