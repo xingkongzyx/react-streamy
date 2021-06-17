@@ -1,54 +1,46 @@
 {
   "streams": [
     {
-      "title": "ASDASD",
-      "description": "ASDASD",
+      "title": "title1",
+      "description": "description",
       "id": 1
     },
     {
-      "title": "NEW SADASD",
-      "description": "STREAM",
+      "title": "title2",
+      "description": "description",
       "id": 2
     },
     {
-      "title": "老人与海",
-      "description": "拼搏",
+      "title": "title3",
+      "description": "description",
       "id": 3
     },
     {
-      "title": "asdwqdas",
-      "description": "z z zx zada",
+      "title": "title4",
+      "description": "description",
       "id": 4
     },
     {
-      "title": "asdwqdas",
-      "description": "z z zx zada",
+      "title": "title5",
+      "description": "description",
       "id": 5
     },
     {
-      "title": "adasdqwe",
-      "description": "asadasdsad",
+      "title": "title6",
+      "description": "this is a des",
       "id": 6
     },
     {
-      "title": "adasdqwe",
-      "description": "asadasdsad",
+      "title": "title7",
+      "description": "this is a new stream with userID",
+      "userId": null,
       "id": 7
     },
     {
-      "title": "new title",
-      "description": "this is a test",
+      "title": "title8",
+      "description": "this is a new stream with userID",
+      "userId": "116848809589230524061",
       "id": 8
-    },
-    {
-      "title": "new title",
-      "description": "this is a test",
-      "id": 9
-    },
-    {
-      "title": "sadasdas",
-      "description": "sadasd",
-      "id": 10
     }
   ]
 }

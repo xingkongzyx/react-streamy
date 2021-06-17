@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchStreams } from '../../actions';
 
 class StreamList extends React.Component {
@@ -35,12 +36,26 @@ class StreamList extends React.Component {
 		});
 	}
 
+	// 	根据user是否登录判断是否显示"create stream button"
+	renderCreateButton() {
+		if (this.props.isSignedIn) {
+			return (
+				<div style={{textAlign: "right"}} >
+					<Link to="/streams/new" className="ui button primary">
+						Create Stream
+					</Link>
+				</div>
+			);
+		}
+	}
+
 	render() {
 		// console.log('component render');
 		return (
 			<div>
 				<h2>Streams</h2>
 				<div className="ui celled list">{this.renderList()}</div>
+				{this.renderCreateButton()}
 			</div>
 		);
 	}
@@ -52,8 +67,11 @@ const mapStateToProps = (state) => {
 	//  转换为array并传入component
 	// 	同时将目前登录的user的userId传入component，方便
 	// 	根据id的匹配在对应stream右边显示edit/delete buttons
-	return { streams: Object.values(state.streams), 
-			currentLoggedUserId: state.auth.userId };
+	return {
+		streams: Object.values(state.streams),
+		currentLoggedUserId: state.auth.userId,
+		isSignedIn: state.auth.isSignedIn,
+	};
 };
 
 export default connect(mapStateToProps, { fetchStreams })(StreamList);
