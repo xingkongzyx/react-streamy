@@ -1,42 +1,6 @@
 {
   "streams": [
     {
-      "title": "title1",
-      "description": "description",
-      "id": 1
-    },
-    {
-      "title": "title2",
-      "description": "description",
-      "id": 2
-    },
-    {
-      "title": "title3",
-      "description": "description",
-      "id": 3
-    },
-    {
-      "title": "title4",
-      "description": "description",
-      "id": 4
-    },
-    {
-      "title": "title5",
-      "description": "description",
-      "id": 5
-    },
-    {
-      "title": "title6",
-      "description": "this is a des",
-      "id": 6
-    },
-    {
-      "title": "title7",
-      "description": "this is a new stream with userID",
-      "userId": null,
-      "id": 7
-    },
-    {
       "title": "title8",
       "description": "this is a new stream with userID",
       "userId": "116848809589230524061",
