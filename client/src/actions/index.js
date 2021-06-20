@@ -8,7 +8,7 @@ import {
 	EDIT_STREAM,
 } from './types';
 import streams from '../apis/streams';
-import history from "../history"
+import history from '../history';
 
 export const signIn = (userId) => {
 	return {
@@ -28,15 +28,15 @@ export const signOut = () => {
 export const createStream = (formValues) => {
 	return async (dispatch, getState) => {
 		const userId = getState().auth.userId;
-		const response = await streams.post('/streams', {...formValues, userId});
+		const response = await streams.post('/streams', { ...formValues, userId });
 		dispatch({
 			type: CREATE_STREAM,
 			payload: response.data,
 		});
-		
-// 		after making a request to server.
-// 		navigate user to streamList page(URL: "/")
-		history.push("/")
+
+		// 		after making a request to server.
+		// 		navigate user to streamList page(URL: "/")
+		history.push('/');
 	};
 };
 
@@ -69,6 +69,6 @@ export const editStream = (id, formValues) => {
 	return async (dispatch) => {
 		const response = await streams.put(`/streams/${id}`, formValues);
 		dispatch({ type: EDIT_STREAM, payload: response.data });
+		history.push('/');
 	};
 };
-

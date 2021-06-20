@@ -1,56 +1,14 @@
 {
   "streams": [
     {
-      "title": "title8",
-      "description": "this is a new stream with userID",
-      "userId": "116848809589230524061",
-      "id": 8
+      "title": "new title",
+      "description": "这里是天津13123",
+      "id": 1
     },
     {
-      "title": "title 10",
-      "description": "navigation test",
-      "userId": "116848809589230524061",
-      "id": 9
-    },
-    {
-      "title": "test11",
-      "description": "navigate to streamlist",
-      "userId": "116848809589230524061",
-      "id": 10
-    },
-    {
-      "title": "addasdszxcw",
-      "description": "qwewqesdasda",
-      "userId": "116848809589230524061",
-      "id": 11
-    },
-    {
-      "userId": "116848809589230524061",
-      "id": 12
-    },
-    {
-      "title": "asdsad",
-      "description": "qwewqe",
-      "userId": "116848809589230524061",
-      "id": 13
-    },
-    {
-      "title": "newstream",
-      "description": "code reuse",
-      "userId": "116848809589230524061",
-      "id": 14
-    },
-    {
-      "title": "adss",
-      "description": "adasdsad",
-      "userId": null,
-      "id": 15
-    },
-    {
-      "title": "adss",
-      "description": "adasdsad",
-      "userId": null,
-      "id": 16
+      "title": "我的第二家乡",
+      "description": "美国",
+      "id": 2
     }
   ]
 }
