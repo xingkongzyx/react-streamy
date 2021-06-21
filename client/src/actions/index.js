@@ -67,7 +67,7 @@ export const deleteStream = (id) => {
 // action creator to update one specific stream using the id from api server
 export const editStream = (id, formValues) => {
 	return async (dispatch) => {
-		const response = await streams.put(`/streams/${id}`, formValues);
+		const response = await streams.patch(`/streams/${id}`, formValues);
 		dispatch({ type: EDIT_STREAM, payload: response.data });
 		history.push('/');
 	};

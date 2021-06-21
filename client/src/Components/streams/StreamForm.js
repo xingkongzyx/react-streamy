@@ -4,7 +4,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-
 class StreamForm extends React.Component {
 	// 	辅助renderInput function显示error
 	renderErrors(meta) {
@@ -43,7 +42,9 @@ class StreamForm extends React.Component {
 					className="ui form error"
 					onSubmit={this.props.handleSubmit(this.onFormSubmit)}
 				>
-					<Field name="title" component={this.renderInput} label="Enter Title" />
+					<Field name="title" 
+						component={this.renderInput} 
+						label="Enter Title" />
 					<Field
 						name="description"
 						component={this.renderInput}
@@ -74,7 +75,3 @@ export default reduxForm({
 	form: 'streamForm',
 	validate,
 })(StreamForm);
-
-
-
-
