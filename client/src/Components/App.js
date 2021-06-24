@@ -10,18 +10,21 @@ import history from '../history';
 
 // clientID: 487137633010-pq9ok0rf8904tpb3kljubtqfcp6ckgoe.apps.googleusercontent.com
 
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 const App = () => {
 	return (
 		<div className="ui container">
 			<Router history={history}>
 				<div>
 					<Header />
-					<Route path="/" exact component={StreamList} />
-					<Route path="/streams/new" exact component={StreamCreate} />
-					<Route path="/streams/edit/:id" exact component={StreamEdit} />
-					<Route path="/streams/delete/:id" exact component={StreamDelete} />
-					<Route path="/streams/show" exact component={StreamShow} />
+					<Switch>
+						<Route path="/" exact component={StreamList} />
+						<Route path="/streams/new" exact component={StreamCreate} />
+						<Route path="/streams/edit/:id" exact component={StreamEdit} />
+						<Route path="/streams/delete/:id" exact 
+							component={StreamDelete} />
+						<Route path="/streams/:id" exact component={StreamShow} />
+					</Switch>
 				</div>
 			</Router>
 		</div>
