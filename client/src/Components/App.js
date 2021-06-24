@@ -8,7 +8,6 @@ import StreamList from './streams/StreamList';
 import Header from './Header';
 import history from '../history';
 
-// clientID: 487137633010-pq9ok0rf8904tpb3kljubtqfcp6ckgoe.apps.googleusercontent.com
 
 import { Router, Route, Switch } from 'react-router-dom';
 const App = () => {
