@@ -3,11 +3,12 @@ import Modal from '../Modal';
 import history from '../../history';
 import { connect } from 'react-redux';
 import { fetchStream } from '../../actions';
+import { Link } from "react-router-dom"
+
 
 class StreamDelete extends React.Component {
 // 	确保component能够自己获得需要的数据
 	componentDidMount() {
-		console.log('运行componentDidMount');
 // 		获取对应id的stream，以便在render中展示对应的title
 		this.props.fetchStream(this.props.match.params.id);
 	}
@@ -17,7 +18,7 @@ class StreamDelete extends React.Component {
 		const actions = (
 			<React.Fragment>
 				<button className="ui primary button">Delete</button>
-				<button className="ui button">Cancel</button>
+				<Link className="ui button" to="/">Cancel</Link>
 			</React.Fragment>
 		);
 		return actions;
@@ -32,7 +33,6 @@ class StreamDelete extends React.Component {
 	}
 
 	render() {
-		console.log('render method中stream is ', this.props.stream);
 		return (
 			<Modal
 				title="Delete Stream"
@@ -47,8 +47,6 @@ class StreamDelete extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	console.log('运行mapStateToProps+输出state');
-	console.log(state);
 	return { stream: state.streams[ownProps.match.params.id] };
 };
 
