@@ -2,29 +2,34 @@ import React from 'react';
 import Modal from '../Modal';
 import history from '../../history';
 import { connect } from 'react-redux';
-import { fetchStream } from '../../actions';
-import { Link } from "react-router-dom"
-
+import { fetchStream, deleteStream } from '../../actions';
+import { Link } from 'react-router-dom';
 
 class StreamDelete extends React.Component {
-// 	确保component能够自己获得需要的数据
+	// 	确保component能够自己获得需要的数据
 	componentDidMount() {
-// 		获取对应id的stream，以便在render中展示对应的title
+		// 		获取对应id的stream，以便在render中展示对应的title
 		this.props.fetchStream(this.props.match.params.id);
 	}
 
-// 	render delete & Cancel button
+	// 	render delete & Cancel button
 	renderActions() {
+		const id = this.props.match.params.id;
 		const actions = (
 			<React.Fragment>
-				<button className="ui primary button">Delete</button>
-				<Link className="ui button" to="/">Cancel</Link>
+				<button className="ui primary button" 
+					onClick={() => this.props.deleteStream(id)}>
+					Delete
+				</button>
+				<Link className="ui button" to="/">
+					Cancel
+				</Link>
 			</React.Fragment>
 		);
 		return actions;
 	}
 
-// 根据stream是否为undefined确保在Modal显示的内容
+	// 根据stream是否为undefined确保在Modal显示的内容
 	renderContent() {
 		if (!this.props.stream) {
 			return 'Loading';
@@ -50,4 +55,4 @@ const mapStateToProps = (state, ownProps) => {
 	return { stream: state.streams[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { fetchStream })(StreamDelete);
+export default connect(mapStateToProps, { fetchStream, deleteStream })(StreamDelete);
